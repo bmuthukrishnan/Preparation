@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.StringJoiner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -102,11 +103,20 @@ public class CollectionTest {
 		List<Emp> empplist = l.stream()
 				.filter(p -> p.getSalary() >5000)
 				.collect(Collectors.toList());
-		empplist.forEach(n -> System.out.println("filter = "+n.getName()));
+//		empplist.forEach(n -> System.out.println("filter = "+n.getName()));
 		
 		OperationAdd addValue = ((a, b) -> a + b);
-		System.out.println("Value of Addition is ="+addValue.add(30, 40));
+		System.out.println("Value of Addition is ="+addValue.add(30, 40));		
+		StringJoiner str = new StringJoiner(":");
+		str.add("STR!");
+		str.add("STR2");
+		str.add("STR3");
+		str.add("STR4");
+		System.out.println("------------"+str);
+
+		List<String> collect = l.stream().map(x -> x.name).collect(Collectors.toList());
 		
+		System.out.println("Collector value"+collect);
 		
 	}
 
